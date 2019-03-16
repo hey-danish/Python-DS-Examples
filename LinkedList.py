@@ -61,7 +61,17 @@ class SLinkedList:
       current = current.next
       Counter =  Counter + 1
     
-
+  def DeleteNode( self, Key ):
+    status = False
+    current = self.head
+    while (current):
+      if ( current.next.data == Key ):
+        current.next = current.next.next
+        status = True
+        break
+      current = current.next
+    return status
+        
 
 
 list1 = SLinkedList(  )
@@ -70,8 +80,13 @@ list1.Prepend( 14 )
 list1.Append( 10 )
 list1.Append( 20 )
 list1.InsertAtPosition( 1, 7 )
-status = list1.Search( 173 )
-print (status)
+SearchStatus = list1.Search( 173 )
+print ( "----- -----" )
+print (list1.PrintList())
+DeletionStatus = list1.DeleteNode( 20 )
+print ( DeletionStatus )
+print ( "-===-" )
+print (list1.PrintList())
 
 
 
