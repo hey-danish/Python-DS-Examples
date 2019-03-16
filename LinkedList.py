@@ -71,7 +71,15 @@ class SLinkedList:
         break
       current = current.next
     return status
+
+  def SearchRecursive(  self, Key, Current ):
+    if ( Current.data == Key ):
+      return True
+
+    if ( Current.next is None ):
+      return False
         
+    return self.SearchRecursive ( Key, Current.next )        
 
 
 list1 = SLinkedList(  )
@@ -81,11 +89,9 @@ list1.Append( 10 )
 list1.Append( 20 )
 list1.InsertAtPosition( 1, 7 )
 SearchStatus = list1.Search( 173 )
-print ( "----- -----" )
-print (list1.PrintList())
 DeletionStatus = list1.DeleteNode( 20 )
-print ( DeletionStatus )
-print ( "-===-" )
+SearchStatusRecursive = list1.SearchRecursive( 10, list1.head )
+
 print (list1.PrintList())
 
 
